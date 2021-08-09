@@ -1,0 +1,10 @@
+<a href="/recipe/main"><img src="/images/siteimage/longlogo.jpg" style="height: 180px; width: 350px; display: block; margin: 15px auto;"></a>
+
+  
+  <div id="navbar">
+    <a href="/member/logout" class="active"><%=param.memberUser.user_nickname%>님 로그아웃</a>
+    <%for(i=0;i<param.menuList.length;i++){%>
+        <%var menu = param.menuList[i]%>
+    <a href="/recipe/<%=menu.menu_category_id%>"><%=menu.category_name%></a>
+    <%}%>
+  </div>

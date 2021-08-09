@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/member_regist.css">
+<style>
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script>
+    function regist(){
+        if(document.getElementById("id").value==""){
+            alert("아이디를 입력해주세요");
+            document.getElementById("id").focus();
+            return;
+        }
+        if(document.getElementById("psw").value==""){
+            alert("비밀번호를 입력해주세요");
+            document.getElementById("psw").focus();
+            return;
+        }
+        if(document.getElementById("name").value==""){
+            alert("이름을 입력해주세요");
+            document.getElementById("name").focus();
+            return;
+        }
+        if(document.getElementById("nick").value==""){
+            alert("닉네임을 입력해주세요");
+            document.getElementById("nick").focus();
+            return;
+        }
+
+        $("form").attr({
+            action:"/member/regist",
+            method:"post"
+        });
+        $("form").submit(); //전송!!
+
+    }
+</script>
+
+</head>
+<body>
+  <img src="/images/siteimage/longlogo.jpg" style="height: 180px; width: 350px; display: block; margin: 15px auto;">
+
+<form name = "form1">
+  <div class="container">
+    <h2 >회원정보를 입력하고 "오내요" 회원이 되어보세요 ^^ </h2>
+
+    <hr>
+    <input type="text" placeholder="아이디" name="user_id" id="id" required>
+    <input type="password" placeholder="비밀번호" name="user_pass" id="psw" required>
+    <input type="text" placeholder="이름" name="user_name" id="name" required>
+    <input type="text" placeholder="닉네임" name="user_nickname" id="nick" required>
+
+    <hr>
+
+    <button type="button" class="registerbtn" onclick="regist()">Regist</button>
+  </div>
+
+</form>
+
+</body>
+</html>

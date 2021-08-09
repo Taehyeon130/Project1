@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  background-color:rgb(255, 189, 200);
+  padding: 30px;
+  text-align: center;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: rgb(253, 210, 217);
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: gray;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-color:rgb(253, 210, 217) ;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: rgb(253, 184, 196);
+}
+
+#navbar a.active {
+  background-color: lightblue;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}

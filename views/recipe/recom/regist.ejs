@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+<link rel="stylesheet" href="/css/member_navi.css">
+<link rel="stylesheet" href="/css/regist.css">
+<style>
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<!-- 제이쿼리 사용하기 위함 -->
+<script>
+
+$(function(){ //onLoad 되면...
+
+  $($("input[type='button']")[0]).click(function(){ //업로드
+      regist();
+    });
+    $($("input[type='button']")[1]).click(function(){ //목록
+      getList();
+    });
+    // 이미지 선택시 
+    $("input[type='file']").on("change",function(){
+      // preview라는 이미지의 src값을 선택한 값으로 변경
+      console.log($(this).val());
+      
+      var filename = $(this).val().substring($(this).val().lastIndexOf("\\")+1,$(this).val().length); //지정된 옵션으로 문자열의 일부를 추출
+      console.log("추출된 파일명",filename);
+
+      $("#preview").attr("src","http://localhost:5959/images/"+filename);
+    });
+  });
+  function regist(){ //등록
+    // form 태그로 영역을 설정
+    // attr은 속성을 정하는거
+    $("form").attr("action","/recipe/recom/regist"); 
+    $("form").attr("method","post"); 
+    $("form").attr("enctype","multipart/form-data"); 
+
+    $("form").submit(); //전송 행위 발생
+
+  }
+
+  function getList(){//목록
+    location.href="/recipe/2";
+  }
+</script>
+</head>
+<body>
+  <%- include ('../inc/main_navi')%>
+<h3>추천 레시피 등록하기</h3>
+
+<div class="container">
+
+  <form>
+    <input type="text" name="title" placeholder="Title">
+    <h4><%=param.memberUser.user_nickname%></h4>
+    <input type="hidden"  id="writer" name="writer" value="<%=param.memberUser.user_nickname%>">
+    <img src="#" alt="" id="preview"> 
+    <textarea  id="content" name="content" placeholder="Write something.." style="height:300px"></textarea>
+    <input type="file" name="pic">  
+<br>
+
+    <input type="button" value="업로드" >
+    <input type="button" value="목록" >
+
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/member_login.css">
+<style>
+</style>
+<!-- 제이쿼리 사용을 위함 ▼ -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+
+<script>
+
+    function loginCheck(){
+        $("form").attr({
+            action:"/member/login",
+            method:"post"
+        });
+        $("form").submit(); //전송!!
+    }
+</script>
+
+</head>
+<body>
+    <img src="/images/siteimage/longlogo.jpg" style="height: 180px; width: 350px; display: block; margin: 15px auto;">
+
+
+    <div class="container">
+    <form>
+    <div class="row">
+        <input class = "row1" type="text" name="user_id" placeholder="Username"  required="required">
+        <input  class = "row2" type="password" name="user_pass" placeholder="Password" required="required">
+        <input  class = "row3" type="button" value="Login" onClick="loginCheck()">
+    </div>
+    </form>
+    </div>
+    
+    <div class="bottom-container">
+        <div class="row">
+            <a href="/member/registform" style="color:white; " class="btn2">Sign up</a>   
+        </div>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/admin_navi.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=button] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=button]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+  function getList(){ //목록
+      location.href="/admin/recipe/1";
+  }
+
+  function del(){ //삭제
+    if(confirm("삭제하시겠습니까?")){
+      $("form").attr({
+            action:"/admin/challenge/del",
+            method:"post"
+        });
+        $("form").submit(); //전송!!
+    }
+  }
+
+</script>
+</head>
+<body>
+  <%- include ('../inc/navi')%>
+<h3>도전 상세보기 - 관리자</h3>
+
+<div class="container">
+  <form>
+    <%var challenge = param.record;%>
+    <input type="hidden" name ="recipe_id" value="<%=challenge.recipe_id%>">
+    <input type="hidden" name="filename" value= "<%=challenge.filename%>">
+
+    <input type="text"  id="title" name="title" value="<%=challenge.title%>">
+    <input type="text"  id="writer" name="writer" value="<%=challenge.writer%>">
+    <textarea  id="content" name="content" style="height:300px"><%=challenge.content%></textarea>
+  <img src="/food/<%=challenge.filename%>" width="300px" id="preview">
+    <p></p>
+    <input type="button" value="삭제" onclick="del()">
+    <input type="button" value="목록" onclick="getList()">
+  </form>
+</div>
+
+</body>
+</html>

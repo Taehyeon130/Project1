@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/main.css">
+<style>
+
+</style>
+</head>
+<script>
+  function regist(){
+   window.location.href="/member/loginform";
+  }
+
+  function login(){
+   window.location.href="/admin/loginform";
+  }
+</script>
+<body>
+
+  <!-- 로고 화면 -->
+<img src="/images/siteimage/longlogo.jpg" style="height: 180px; width: 350px; display: block; margin: 0px auto;">
+
+<!-- 사용자 -->
+<div class="container" style="background-color:#f1f1f1">
+  <div class="row">
+    <div class="column-66">
+      <h1 class="xlarge-font"  style="color:pink;"><b>요린이들 모여라</b></h1>
+      <h1 style="font-size: 30px;"><b>가족과 함께하는 요리</b></h1>
+      <p>다양한 정보를 얻어서 가족들과 함께 음식을 만들어보자</p>
+      <p>그리고 함께 만든 음식을 뽐내보자</p>
+
+      <button class="button" onclick="regist()" style="background-color: pink;">Regist</button>
+    </div>
+    <div class="column-33">
+        <img src="/images/siteimage/first.jpg" style="width: 800px; height: 450px;">
+    </div>
+  </div>
+</div>
+
+<!-- 관리자 -->
+<div class="container" style="background-color:#bbbbbb57">
+  <div class="row">
+    <div class="column-33">
+      <img  src="/images/siteimage/second.jpg" width="1000" height="650">
+    </div>
+    <div class="column-66">
+      <h1 class="xlarge-font"  style="color: lightblue;"><b>오내요 관리자</b></h1>
+      <h1 style="font-size: 30px;"><b>사이트 관계자만 접근가능합니다</b></h1>
+      <button class="button" style="background-color:lightblue" onclick="login()">로그인</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<a href="/admin/main"><img src="/images/siteimage/longlogo.jpg" style="height: 180px; width: 350px; display: block; margin: 15px auto;"></a>
+
+<div class="navbar">
+    <a class="active" href="/admin/logout"><%=param.adminUser.master_name%>님 로그아웃</a>
+    <a  href="/recipe/main" target="_blank">오내요</a> <!--새로운 창으로 나타내게 함-->
+    <a href="/admin/notify/list">공지하기</a>
+    <a href="/admin/member/list">회원관리</a>
+
+    <div class="dropdown">
+      <button class="dropbtn">게시판 관리
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <%for(i=0;i<param.menuList.length-2;i++){%> 
+            <%var menu = param.menuList[i]%>
+            <a href="/admin/recipe/<%=menu.menu_category_id%>"><%=menu.category_name%></a>
+         <%}%>
+      </div>
+    </div> 
+    <a href="/admin/recipe/5">문의사항 관리</a>
+  </div>

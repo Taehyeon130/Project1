@@ -1,0 +1,83 @@
+<%
+var totalRecord=param.record.length; //총 레코드 수
+var pageSize=10; //페이지 당 보여질 레코드 수
+var totalPage=Math.ceil(totalRecord/pageSize); //총 페이지 수 올리기 floor는 내리기
+var blockSize=10;//블럭당 보여질 페이지 수
+var currentPage=param.currentPage;//현재페이지
+var firstPage=currentPage-(currentPage-1)%blockSize; //블럭당 for문의 시작 페이지
+var lastPage=firstPage+(blockSize-1); //블럭당 for문의 마지막 페이지
+var curPos=(currentPage-1)*pageSize; //페이지 당 데이터 배열의 시작 인덱스
+var num=totalRecord-curPos;//페이지당 게시물 시작 번호
+%>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/admin_navi.css">
+
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+</style>
+</head>
+<body>
+  <%- include ('../inc/navi')%>
+<h2>문의 사항</h2>
+
+
+<table>
+  <tr>
+    <th>No</th>
+    <th>제목</th>
+    <th>작성자</th>
+    <th>작성일</th>
+    <th>조회수</th>
+  </tr>
+  <%for(var i=1;i<=pageSize;i++){%>
+    <%if(num<1)break;%>
+    <%var notify = param.record[curPos++];%>
+  <tr onclick="location.href='/admin/notify/detail?recipe_id=<%=notify.recipe_id%>'"> 
+    <td><%=(num--)%></td>
+    <td><%=notify.title%></td>
+    <td><%=notify.writer%></td>
+    <%var d = new Date(notify.regdate)%>
+    <td>
+      <%=d.getFullYear()%>-<%=param.lib.getZeroString(d.getMonth()+1)%>-<%=param.lib.getZeroString(d.getDate())%>
+    </td>
+    <td><%=notify.hit%></td>
+  </tr>
+
+  <%}%>
+  <tr>
+    <td colspan="5">
+      <button onClick="location.href='/admin/notify/registform'">글 쓰기</button>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="5" style="text-align: center;">
+        <a href="/admin/notify/list">◀</a>
+        <%for(var i=1;i<=blockSize;i++){%>
+            <%if(i>totalPage)break;%>
+        <a href="/admin/notify/list?currentPage=<%=i%>">[<%=i%>]</a>
+        <%}%>
+        <a href="/admin/notify/list">▶</a>
+    </td>
+</tr>
+</table>
+
+</body>
+</html>

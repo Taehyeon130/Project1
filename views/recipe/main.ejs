@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/member_navi.css">
+<style>
+  * {
+  box-sizing: border-box;
+}
+
+/* Add a gray background color with some padding */
+body {
+  font-family: Arial;
+  padding: 20px;
+  background:white;
+}
+
+
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+  float: left;
+  width: 25%;
+  padding-left: 20px;
+}
+
+/* Fake image */
+.fakeimg {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Add a card effect for articles */
+.card {
+   background-color:#f1f1f1;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {   
+    width: 100%;
+    padding: 0;
+  }
+}
+</style>
+
+<script>
+  $(function(){
+    $("#preview").attr("src","http://localhost:5959/images/"+filename);
+
+  });
+</script>
+</head>
+<body>
+
+  <%- include ('./inc/main_navi')%>
+
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h2>BEST 오늘 나의 도전</h2>
+        <h5><%=param.chall[0].title%></h5>
+        <img src="/food/<%=param.chall[0].filename%>" width="400px" id="preview">
+       <p><%=param.chall[0].writer%></p>
+        <p><%=param.chall[0].content%></p>
+      </div>
+      <div class="card">
+        <h2>BEST 레시피</h2>
+        <h5><%=param.reci[0].title%></h5>
+        <img src="/food/<%=param.reci[0].filename%>" width="400px" id="preview">
+        <p><%=param.reci[0].writer%></p>
+        <p><%=param.reci[0].content%></p>
+      </div>
+    </div>
+    <div class="rightcolumn">
+      <div class="card">
+        <h2>BEST Photo</h2>
+        <img src="/food/<%=param.photo[0].filename%>" width="200px" id="preview">
+        <p><%=param.photo[0].content%></p>
+      </div>
+      <!-- <div class="card">
+        <h3>BEST 이용자</h3>
+        <div class="fakeimg">Image</div><br>
+        <div class="fakeimg">Image</div><br>
+        <div class="fakeimg">Image</div>
+      </div> -->
+
+    </div>
+  </div>
+  
+
+</body>
+</html>

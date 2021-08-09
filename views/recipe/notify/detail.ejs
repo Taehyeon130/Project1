@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/member_navi.css">
+<link rel="stylesheet" href="/css/detail.css">
+<style>
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/Comments.js"></script>
+<script>
+  function getList(){ //목록
+      location.href="/recipe/4";
+  }
+
+
+
+   // 댓글 등록 요청
+   function addComment(){
+
+    var xhttp = new XMLHttpRequest(); // 비동기 객체 생성
+
+    xhttp.onreadystatechange=function(){
+      if(this.readyState==4 && this.status==200){
+        // alert("서버로부터 받은 데이터는"+this.responseText);
+        var json = JSON.parse(this.responseText);
+        if(json.result==0){
+          alert("댓글 등록 실패");
+        }else{
+          getCommentsList();
+        }
+      }
+    }
+    
+    xhttp.open("POST", "/recipe/notify/comments/regist", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    var msg=$("input[name='msg']").val();//댓글 내용
+    var author=$("input[name='author']").val();//댓글 작성자
+    xhttp.send("recipe_id=<%=param.record.recipe_id%>&msg="+msg+"&author="+author);
+  }
+  
+  // 댓글 목록 비동기로 가져오기
+  function getCommentsList(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+      if(this.readyState==4 && this.status==200){
+        // alert("서버로부터 받은 데이터는"+this.responseText);
+        var json= JSON.parse(this.responseText);
+        // alert(json);
+        printCommentsList(json);    
+      }
+    }
+    
+    xhttp.open("GET"," /recipe/notify/comments/list?recipe_id=<%=param.record.recipe_id%>",true);
+    xhttp.send();
+  }
+  
+  // 댓글 출력
+  function printCommentsList(arr){
+    $("#comments_wrapper").html("");
+    console.log("댓글 리스트",arr);
+    for(var i=0;i<arr.length;i++){
+      var msg = arr[i].msg;
+      var author=arr[i].author;
+      var writeDay=''+arr[i].writeday; 
+      var c = new Comments(document.getElementById("comments_wrapper"), msg,author,writeDay.substring(0,10));
+    }
+  }
+
+
+
+</script>
+</head>
+<body>
+  <%- include ('../inc/main_navi')%>
+
+<div class="container">
+  <form id="form1">
+    <%var notify = param.record;%>
+    <input type="hidden" name ="recipe_id" value="<%=notify.recipe_id%>">
+    <input type="hidden" name="filename" value= "<%=notify.filename%>">
+    <h3  id="title" name="title"><%=notify.title%></h3>
+    <h4 id="writer" name="writer"><%=notify.writer%></h4>
+    <h4 id="content" name="content"  style="height:300px"><%=notify.content%></h4>
+
+    <p></p>
+
+   
+    <input type="button" value="목록" onclick="getList()">
+  </form>
+
+  <form id="comment-form">
+    <!-- 아래의 히든의 용도? 어떤 뉴스기사에 대한 댓글인지를 결정지음  -->
+    <input type="hidden" name="recipe_id" value="<%=param.record.recipe_id%>">
+
+    <input type="text" id="msg" name="msg" placeholder="댓글내용" style="width:70%">
+    <h4 name="author" style="width:15%"><%=param.memberUser.user_nickname%></h4>
+    <input type="button" value="댓글등록" style="width:10%" onClick="addComment()">
+  </form>
+  
+  <div id="comments_wrapper">
+    <%var commentsList = param.commentsList%>
+  <%for(var i=0;i<commentsList.length;i++){%>
+  <%var comments=commentsList[i]; //댓글 한건 꺼내기%>    
+  <div class="comment-list">
+    <div style="width:70%"><%=comments.msg%></div>    
+    <div style="width:15%;"><%=comments.author%></div>   
+    <%
+      var d = new Date(comments.writeday);      
+      var yy=d.getFullYear();
+      var mm=param.lib.getZeroString(d.getMonth()+1); //월
+      var dd = param.lib.getZeroString(d.getDate());//일
+    %>   
+    <div style="width:10%"><%=yy%>-<%=mm%>-<%=dd%></div>    
+  </div>
+  <%}%>
+  </div>
+  
+</div>
+
+
+
+</body>
+</html>

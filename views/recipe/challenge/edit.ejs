@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/css/member_navi.css">
+
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=button] {
+  padding: 12px 20px;
+    margin-top: 30px;
+    font-size: 20px;
+    width: 100px;
+    border: none;
+    border-radius: 4px;
+    height: 50px;
+    opacity: 0.85;
+    text-decoration: none;
+    background-color: rgb(253, 210, 217);
+    color:gray;
+    cursor: pointer;
+  }
+  
+  input[type=button]:hover {
+      background-color: rgb(255, 189, 200);
+  }
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script>
+$(function(){ //onLoad 되면...
+    // 이미지 선택시 
+    $("input[type='file']").on("change",function(){
+      // preview라는 이미지의 src값을 선택한 값으로 변경
+      console.log($(this).val());
+      
+      var filename = $(this).val().substring($(this).val().lastIndexOf("\\")+1,$(this).val().length); //지정된 옵션으로 문자열의 일부를 추출
+      console.log("추출된 파일명",filename);
+
+      $("#preview").attr("src","http://localhost:5959/images/"+filename);
+    });
+  });
+    
+    function edit(){ //수정
+    if(confirm("수정하시겠습니까?")){
+      $("#form1").attr({
+            action:"/recipe/challenge/edit",
+            method:"post"
+        });
+        $("#form1").submit(); //전송!!
+    }
+  }
+
+    function getList(){ //목록
+        location.href="/recipe/1";
+    }
+
+</script>
+</head>
+<body>
+  <%- include ('../inc/main_navi')%>
+
+
+<div class="container">
+  <form id="form1">
+    <%var challenge = param.record;%>
+    <input type="hidden" name ="recipe_id" value="<%=challenge.recipe_id%>">
+    <input type="hidden" name="filename" value= "<%=challenge.filename%>">
+
+    <input type="text"  id="title" name="title" value="<%=challenge.title%>">
+    <input type="text"  id="writer" name="writer" value="<%=challenge.writer%>">
+    <img src="/food/<%=challenge.filename%>" width="300px" id="preview"> <!--미리보기 일뿐-->
+    <textarea  id="content" name="content" style="height:300px"><%=challenge.content%></textarea>
+    <input type="file" name="pic">
+    <p></p>
+
+    <p></p>
+    <input type="button" value="수정" onclick="edit()">
+    <input type="button" value="목록" onclick="getList()">
+  </form>
+</div>
+
+</body>
+</html>
