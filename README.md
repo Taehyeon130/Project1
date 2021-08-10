@@ -39,3 +39,11 @@
 • comments : 댓글<br>
 
 <h4>5. 구현 화면</h4>
+
+1) 메인 화면
+관리자와 사용자가 나뉘어 들어갈수있도록 설정
+
+
+![main](https://user-images.githubusercontent.com/75840459/128799689-087fea4f-68e3-4524-920d-95734ae79099.PNG)
+
+2) 
