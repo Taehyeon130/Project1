@@ -21,6 +21,9 @@
 • node.js
 • css
 • html
-• mysql
+• mysql<br>
 
 
+<h4>4. DB 설계<h4>
+![image](https://user-images.githubusercontent.com/75840459/128795511-0756c7af-5309-40ff-be0c-a30bc7fe8b4d.png)
+ 
