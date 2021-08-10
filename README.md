@@ -25,6 +25,7 @@
 
 
 <h4>4. DB 설계<h4>
-![오내요 DB설계](https://user-images.githubusercontent.com/75840459/128795656-fdf5a146-c8d3-44ac-ad53-b49c64db7888.PNG)
+![db](https://user-images.githubusercontent.com/75840459/128797166-b2b31e0e-3757-43a8-aadd-c3abaf809c8a.PNG)
+
 
  
