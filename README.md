@@ -17,6 +17,7 @@
 
 
 <h4>3. 사용 언어와 프로그램</h4>
+
 • Visual Studio Code
 • node.js
 • css
@@ -24,8 +25,17 @@
 • mysql<br>
 
 
-<h4>4. DB 설계<h4>
-![db](https://user-images.githubusercontent.com/75840459/128797166-b2b31e0e-3757-43a8-aadd-c3abaf809c8a.PNG)
+<h4>4. DB 설계</h4>
 
+파란색 - 기본키 / 주황색 - 외래키<br>
 
  
+ ![db](https://user-images.githubusercontent.com/75840459/128797237-2bbf3ec3-3f29-4bec-9035-b260dab9e5b4.PNG)
+
+• admin : 관리자<br>
+• member : 사용자<br>
+• menu_category : 글 카테고리<br>
+• recipe : 글<br>
+• comments : 댓글<br>
+
+<h4>5. 구현 화면</h4>
