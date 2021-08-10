@@ -17,4 +17,10 @@
 
 
 <h4>3. 사용 언어와 프로그램</h4>
+• Visual Studio Code
+• node.js
+• css
+• html
+• mysql
+
 
