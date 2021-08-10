@@ -40,11 +40,9 @@
 
 <h4>5. 구현 화면</h4>
 
-1) 메인 화면<br>
-관리자와 사용자가 나뉘어 들어갈수있도록 설정
+1) 사용자의 회원가입과 로그인
+
+![ezgif com-gif-maker (16)](https://user-images.githubusercontent.com/75840459/128864098-602c8930-dbf2-4c07-9b46-7c4533e2674d.gif)
 
 
-![main](https://user-images.githubusercontent.com/75840459/128799689-087fea4f-68e3-4524-920d-95734ae79099.PNG)
-
-2) 사용자 메인 화면<br>
 
