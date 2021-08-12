@@ -48,7 +48,7 @@
 
 2) 글 등록
 
-![ezgif com-gif-maker (17)](https://user-images.githubusercontent.com/75840459/129125030-2981c7cd-f116-4b17-91f4-8112a74013ec.gif)
+![ezgif com-gif-maker (19)](https://user-images.githubusercontent.com/75840459/129126382-981abfa0-7f8f-405f-a3f7-460b1ceb1a24.gif)
 
 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
