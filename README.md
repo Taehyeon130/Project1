@@ -50,4 +50,10 @@
 
 ![ezgif com-gif-maker (17)](https://user-images.githubusercontent.com/75840459/129125030-2981c7cd-f116-4b17-91f4-8112a74013ec.gif)
 
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
+3) 글 수정 삭제
+
+![ezgif com-gif-maker (18)](https://user-images.githubusercontent.com/75840459/129126242-3b0cadc9-50ce-4b5d-a1ed-342a7cb6a5fd.gif)
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
