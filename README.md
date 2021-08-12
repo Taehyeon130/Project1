@@ -76,3 +76,6 @@
 
 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
+2) 관리자모드
+
+![ezgif com-gif-maker (22)](https://user-images.githubusercontent.com/75840459/129130971-1616b21b-ef29-4e8d-b99f-369be2939038.gif)
