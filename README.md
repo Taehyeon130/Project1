@@ -45,4 +45,8 @@
 ![ezgif com-gif-maker (16)](https://user-images.githubusercontent.com/75840459/128864098-602c8930-dbf2-4c07-9b46-7c4533e2674d.gif)
 
 
+2) 글 등록
+
+![ezgif com-gif-maker (17)](https://user-images.githubusercontent.com/75840459/129125030-2981c7cd-f116-4b17-91f4-8112a74013ec.gif)
+
 
